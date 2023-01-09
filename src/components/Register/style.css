@@ -1,0 +1,77 @@
+.register {
+  background-image: url('/public/assets/imgs/cover.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register .auth {
+  width: 300px;
+  padding: 15px 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 3px 5px 8px rgba(0, 0, 0, 0.05);
+}
+
+.register .auth form {
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+}
+
+.register .auth form .form-input {
+  margin-bottom: 30px;
+}
+
+.register .auth form .form-input label {
+  display: block;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.register .auth form .form-input input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #999999;
+  background-color: transparent;
+  color: #fff;
+  transition: all 0.1s ease-in;
+}
+
+.register .auth form .form-input input:focus {
+  border-color: #a54200;
+}
+
+.register .auth form .confirm {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #a54200;
+  box-shadow: 0 3px 5px 8px rgba(0, 0, 0, 0.05);
+  color: #fff;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.register .auth .have-account {
+  padding: 5px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.register .auth .have-account a {
+  padding: 5px;
+  color: #fff;
+  text-decoration: underline;
+}
