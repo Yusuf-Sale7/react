@@ -30,14 +30,6 @@ function Login () {
     })
   }
 
-  useEffect(() => {
-    let userEmail = localStorage.getItem('email')
-
-    if (userEmail) {
-      navigateTo('/')
-    }
-  })
-
   return (
     <div className="login">
       <div className="auth">

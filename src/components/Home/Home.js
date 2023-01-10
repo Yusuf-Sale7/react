@@ -15,12 +15,6 @@ function Home () {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    let email = localStorage.getItem('email')
-
-    if (email === '' || email === null) {
-      navigateTo('/login')
-    }
-
     axios.get('https://jsonplaceholder.typicode.com/posts')
     .then(res => setPosts(res.data))
     .catch(err => toastr.error(err.message))

@@ -39,14 +39,6 @@ function Register () {
     }
   }
 
-  useEffect(() => {
-    const userEmail = localStorage.getItem('email')
-
-    if (userEmail) {
-      navigateTo('/')
-    }
-  })
-
   return (
     <div className="register">
       <div className="auth">
