@@ -1,9 +1,9 @@
 import React from "react";
-import Home from "./components/Home/Home";
-import Login from "./components/Login/login";
-import Register from "./components/Register/Register";
+import Home from "./Components/Home/Home";
+import Login from "./Components/Login/login";
+import Register from "./Components/Register/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NotFound from "./components/NotFound/NotFound";
+import NotFound from "./Components/NotFound/NotFound";
 import { PrivateRoute, PrivateAuth } from "./PrivateRoute";
 
 function App () {

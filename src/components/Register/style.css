@@ -75,3 +75,10 @@
   color: #fff;
   text-decoration: underline;
 }
+
+.register .alert {
+  display: inline-block;
+  margin-top: 5px;
+  color: #ff3a3a;
+  font-size: 14px;
+}

@@ -1,18 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { logOut } from "../../redux/userSlice";
 import toastr from "toastr";
 import 'toastr/build/toastr.min.css'
+import { logOut, userInfo } from "../../Utils/common";
 import './style.css'
 
 function Home () {
 
   const [posts, setPosts] = useState([])
-  const {name} = useSelector(state => state.user)
+  const user = userInfo()
   const navigateTo = useNavigate()
-  const dispatch = useDispatch()
 
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/posts')
@@ -24,7 +22,7 @@ function Home () {
     e.preventDefault()
 
     navigateTo('/login')
-    dispatch(logOut())
+    logOut()
   }
 
   return (
@@ -32,7 +30,7 @@ function Home () {
       <header>
         <p>
           Welcome
-          <span>{name}</span>
+          <span>{user.name}</span>
         </p>
 
         <button className="logout" onClick={handleLogout}>Logout</button>
