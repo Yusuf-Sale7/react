@@ -37,10 +37,6 @@
   margin: 5px 10px;
 }
 
-.welcome .posts {
-
-}
-
 .welcome .posts ul {
   display: flex;
   justify-content: center;
@@ -71,7 +67,42 @@
   left: 0;
 }
 
-.welcome .posts p {
+.welcome .langs {
+  margin-top: 30px;
+}
 
+.welcome .langs.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.welcome .langs .switchLang select {
+  width: 80px;
+  padding: 3px;
+  margin: 0 8px;
+}
+
+.welcome .langs .switchLang span {
+  font-weight: bold;
+}
+
+.welcome .langs .details {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.welcome .langs .details p {
+  margin: 0;
+  padding: 0 5px;
+  display: inline-block;
+  font-size: 18px;
+}
+
+.welcome .langs .details span {
+  margin: 0 10px;
+  font-weight: bold;
+  font-style: italic;
 }
 
