@@ -52,20 +52,16 @@ function Home () {
 
       <div className="langs" id="langs">
         <div className="switchLang">
-          <span data-lang="viewIn">
-            Show Quote in
-          </span>
+          <span data-lang="viewIn"></span>
           <select ref={currentLang} onChange={(e) => setLang(e.target.value)}>
-            <option value="en" data-lang="english">English</option>
-            <option value='ar' data-lang="arabic">Arabic</option>
+            <option value="en" data-lang="english"></option>
+            <option value='ar' data-lang="arabic"></option>
           </select>
         </div>
         <div className="details">
-          <p data-lang="quote">
-            "He who is not courageous enough to take risks will accomplish nothing in life."
-          </p>
+          <p data-lang="quote"></p>
           -
-          <span data-lang="quoteBy">Muhammad Ali</span>
+          <span data-lang="quoteBy"></span>
         </div>
       </div>
 
