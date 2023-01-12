@@ -45,9 +45,9 @@ function Home () {
           </select>
         </div>
         <div className="details">
-          <p data-lang="quote">{t('quote')}</p>
+          <p>{t('quote')}</p>
           -
-          <span data-lang="quoteBy">{t('quoteBy')}</span>
+          <span>{t('quoteBy')}</span>
         </div>
       </div>
 
