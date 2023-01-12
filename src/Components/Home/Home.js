@@ -1,37 +1,21 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import toastr from "toastr";
-import 'toastr/build/toastr.min.css'
 import { logOut, userInfo } from "../../Utils/common";
 import './style.css'
-import setLang from "../../Locale";
+import useLang from "../../Locales/useLang";
+import { useApi } from "../../APIs/useApi";
 
 function Home () {
 
-  const [posts, setPosts] = useState([])
   const user = userInfo()
 
-  const currentLang = useRef()
+  const data = useApi('https://jsonplaceholder.typicode.com/posts')
+
+  const [locale, setLocale] = useState()
+  const t = useLang(locale)
+
   const navigateTo = useNavigate()
-
-  useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-    .then(res => setPosts(res.data))
-    .catch(err => toastr.error(err.message))
-
-    // Set & Get Lang from locale storage
-    const langFromStorage = localStorage.getItem('lang')
-    if (langFromStorage === 'ar') {
-      setLang(langFromStorage)
-      currentLang.current.value = ('ar')
-    } else if (langFromStorage === 'en') {
-      setLang(langFromStorage)
-      currentLang.current.value = ('en')
-    } else {
-      setLang(currentLang.current.value)
-    }
-  }, [])
 
   const handleLogout = (e) => {
     e.preventDefault()
@@ -53,23 +37,24 @@ function Home () {
 
       <div className="langs" id="langs">
         <div className="switchLang">
-          <span data-lang="viewIn"></span>
-          <select ref={currentLang} onChange={(e) => setLang(e.target.value)}>
-            <option value="en" data-lang="english"></option>
-            <option value='ar' data-lang="arabic"></option>
+          <span>{t('viewIn')}</span>
+          <select onChange={(e) => setLocale(e.target.value)}>
+            <option>{t('selLang')}</option>
+            <option value="en">{t('english')}</option>
+            <option value="ar">{t('arabic')}</option>
           </select>
         </div>
         <div className="details">
-          <p data-lang="quote"></p>
+          <p data-lang="quote">{t('quote')}</p>
           -
-          <span data-lang="quoteBy"></span>
+          <span data-lang="quoteBy">{t('quoteBy')}</span>
         </div>
       </div>
 
       <div className="posts">
         <ul>
           {
-            posts.map(
+            data.map(
               post => {
                 return (
                   <li key={post.id}>

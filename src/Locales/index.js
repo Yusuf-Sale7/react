@@ -1,11 +1,14 @@
-import langs from "./langs";
+import ar from "./ar";
+import en from "./en";
+
+const TRANSLATIONS = { ar, en }
 
 const setLang = (lang) => {
   const elements = document.querySelectorAll('[data-lang]');
   elements.forEach(
     element => {
       const langKey = element.getAttribute('data-lang')
-      element.textContent = langs[lang][langKey]
+      element.textContent = TRANSLATIONS[lang][langKey]
     }
   )
 
