@@ -29,3 +29,8 @@ code {
 button {
   cursor: pointer;
 }
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}

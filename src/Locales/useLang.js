@@ -21,6 +21,11 @@ const useLang = (lang) => {
 
   const t = (keyString) => TRANSLATIONS[lang][keyString]
 
+  // Handle Style
+  const dir = document.getElementById('root')
+  lang === 'ar' ? dir.classList.add('rtl') : dir.classList.remove('rtl')
+
+
   return t
 }
 
