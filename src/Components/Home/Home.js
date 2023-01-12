@@ -13,7 +13,7 @@ function Home () {
   const data = useApi('https://jsonplaceholder.typicode.com/posts')
 
   const [locale, setLocale] = useState()
-  const t = useLang(locale)
+  const { t, langFromStorage } = useLang(locale)
 
   const navigateTo = useNavigate()
 
@@ -38,8 +38,7 @@ function Home () {
       <div className="langs" id="langs">
         <div className="switchLang">
           <span>{t('viewIn')}</span>
-          <select onChange={(e) => setLocale(e.target.value)}>
-            <option>{t('selLang')}</option>
+          <select value={langFromStorage} onChange={(e) => setLocale(e.target.value)}>
             <option value="en">{t('english')}</option>
             <option value="ar">{t('arabic')}</option>
           </select>

@@ -25,8 +25,7 @@ const useLang = (lang) => {
   const dir = document.getElementById('root')
   lang === 'ar' ? dir.classList.add('rtl') : dir.classList.remove('rtl')
 
-
-  return t
+  return { t, langFromStorage }
 }
 
 export default useLang;
