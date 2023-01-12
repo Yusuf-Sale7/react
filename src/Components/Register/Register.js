@@ -9,15 +9,14 @@ import { useForm } from "react-hook-form";
 
 function Register () {
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
   const navigateTo = useNavigate()
 
   const { register, formState: { errors }, handleSubmit } = useForm({mode: "onChange"})
 
-  const handleRegister = async () => {
+  const handleRegister = async (data) => {
+    const name = data.name;
+    const email = data.email;
+    const password = data.password;
     await axios.post('http://localhost:7000/api/users/register', {name, email, password})
     .then(res => {
       toastr.success(res.data, '', {timeOut: 1500})
@@ -36,7 +35,6 @@ function Register () {
           <div className="form-input">
             <label htmlFor="name">Name</label>
             <input type="text" id="name" {...register('name', {
-              onChange: (e) => setName(e.target.value),
               required: 'Name Required!',
               maxLength: {value: 15, message: 'Max Chars is 15'},
               pattern: {value: /^[a-z ,.'-]+$/i, message: 'Name Should Not Contains Numbers'}
@@ -50,7 +48,6 @@ function Register () {
             <input type="email" id="email" {...register('email',
             {
               required: 'Email Required!',
-              onChange: (e) => setEmail(e.target.value),
               pattern: {
                 value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 message: 'Email is invalid!'
@@ -67,7 +64,6 @@ function Register () {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" {...register('password',
             {
-              onChange: (e) => setPassword(e.target.value.trim()),
               required: 'Password Required!',
               minLength: {
                 value: 6,

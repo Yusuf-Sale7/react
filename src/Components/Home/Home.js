@@ -21,11 +21,12 @@ function Home () {
     .catch(err => toastr.error(err.message))
 
     // Set & Get Lang from locale storage
-    if (localStorage.getItem('lang') === 'ar') {
-      setLang(localStorage.getItem('lang'))
+    const langFromStorage = localStorage.getItem('lang')
+    if (langFromStorage === 'ar') {
+      setLang(langFromStorage)
       currentLang.current.value = ('ar')
-    } else if (localStorage.getItem('lang') === 'en') {
-      setLang(localStorage.getItem('lang'))
+    } else if (langFromStorage === 'en') {
+      setLang(langFromStorage)
       currentLang.current.value = ('en')
     } else {
       setLang(currentLang.current.value)
